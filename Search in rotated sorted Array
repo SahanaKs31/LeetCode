@@ -1,0 +1,13 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        pivot=nums.index(min(nums))
+        l=[]
+        for i in range(pivot,len(nums)):
+            l.append(nums[i])
+        for j in range(0,pivot):
+            l.append(nums[j])
+        for k in range(0,len(l)):
+            if l[k]==target:
+                return (k + pivot) % len(nums)
+        return -1
+    
