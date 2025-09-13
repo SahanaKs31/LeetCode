@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        vowels=set("aeiou")
+        freq=Counter(s)
+        max_vowel=0
+        max_const=0
+        for ch,count in freq.items():
+            if ch in vowels:
+                max_vowel=max(max_vowel,count)
+            else:
+                max_const=max(max_const,count)
+        return max_vowel+max_const
