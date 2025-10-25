@@ -1,0 +1,16 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        mapping_s={}
+        mapping_t={}
+        for cs,ct in zip(s,t):
+            if cs in mapping_s:
+                if mapping_s[cs]!=ct:
+                    return False
+            else:
+                mapping_s[cs]=ct
+            if ct in mapping_t:
+                if mapping_t[ct] != cs:
+                    return False
+            else:
+                mapping_t[ct] = cs
+        return True
