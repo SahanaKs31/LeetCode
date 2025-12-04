@@ -1,0 +1,8 @@
+from collections import Counter
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        co=Counter(nums)
+        for key in co:
+            if co[key]>=2:
+                return True
+        return False
