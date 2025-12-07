@@ -1,0 +1,15 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        if len(pattern)!=len(s.split()):
+            return False
+        ss=s.split()
+        ptos={}
+        stop={}
+        for c,w in zip(pattern,ss):
+            if c in ptos and ptos[c]!=w:
+                return False
+            if w in stop and stop[w]!=c:
+                return False
+            ptos[c]=w
+            stop[w]=c
+        return True
